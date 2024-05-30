@@ -26,12 +26,12 @@ float UEducationalLibraryPluginBPLibrary::VectorLength(FVector vector)
 		FMath::Pow(vector.Z, 2.f));
 }
 
-FVector UEducationalLibraryPluginBPLibrary::MultiplicationScalar(float scalar, FVector vector)
+FVector UEducationalLibraryPluginBPLibrary::MultiplicationScalar(FVector vector, float scalar)
 {
 	return FVector(vector.X * scalar, vector.Y * scalar, vector.Z * scalar);
 }
 
-FVector UEducationalLibraryPluginBPLibrary::DivisionScalar(float scalar, FVector vector)
+FVector UEducationalLibraryPluginBPLibrary::DivisionScalar(FVector vector, float scalar)
 {
 	return FVector(vector.X / scalar, vector.Y / scalar, vector.Z / scalar);
 }
@@ -40,7 +40,7 @@ FVector UEducationalLibraryPluginBPLibrary::VectorNormalization(FVector vector)
 {
 	float temp = 1.f / VectorLength(vector);
 
-	return MultiplicationScalar(temp, vector);
+	return MultiplicationScalar(vector, temp);
 }
 
 FVector UEducationalLibraryPluginBPLibrary::VectorSum(FVector vector1, FVector vector2)
