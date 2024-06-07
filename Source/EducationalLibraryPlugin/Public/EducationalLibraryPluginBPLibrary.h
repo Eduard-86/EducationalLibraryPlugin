@@ -39,21 +39,31 @@ class UEducationalLibraryPluginBPLibrary : public UBlueprintFunctionLibrary
 	//)
 	//static FORCEINLINE uint8 ShiftRight_Uint8(const uint8 Value, const int32 Shift) { return Value >> Shift; }
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static float VectorLength(FVector vector);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static FVector MultiplicationScalar(FVector vector, float scalar);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static FVector DivisionScalar(FVector vector, float scalar);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static FVector VectorNormalization(FVector vector);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static FVector VectorSum(FVector vector1, FVector vector2);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|Vectors", meta = (Keywords = "eduard"))
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|StandartVecLib", meta = (Keywords = "eduard"))
 	static FVector VectorDifference(FVector vector1, FVector vector2);
+
+	// Return speed vector for unit of time
+	// If get length we get speed scalar 
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|AlgebVecLib", meta = (Keywords = "eduard"))
+	static FVector GetSpeedVector(FVector StartPosition, FVector PositionAfterTime, float MoveTime);
+
+	// SpeedDelta can be 0.0 - 1.0
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Math|AlgebVecLib", meta = (Keywords = "eduard"))
+	static FVector GetEMAAverageSpeed(FVector SpeedVector, FVector OldEMASpeed, float SpeedDelta);
+	
 };
